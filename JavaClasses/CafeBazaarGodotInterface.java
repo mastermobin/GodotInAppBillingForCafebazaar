@@ -1,5 +1,6 @@
 package org.godotengine.godot;
 
+import java.util.Arrays;
 import java.util.List;
 
 import com.godot.game.R;
@@ -79,17 +80,22 @@ public class CafeBazaarGodotInterface extends Godot.SingletonBase {
         });
     }
 
-    public void queryInventory(boolean details){
-        //Log.d("DEBUGING", "INCOME");
-        // for (int i = 0; i < skusList.size(); i++) 
-        //     Log.d("DEBIGING", skusList.get(i).toString());
-        // mHelper.queryInventoryAsync(true, additionalSkuList,
-        // new IabHelper.QueryInventoryFinishedListener() {
-        //     public void onQueryInventoryFinished(IabResult result, Inventory inventory)  
-        //     {
-               
-        //     }
-        // });
+    public void queryInventory(final boolean details, String skuString){
+        Log.d("DEBUGING", "INCOME");
+        String[] skuArray = skuString.split(";");
+        final List skus = Arrays.asList(skuArray);
+        mActivity.runOnUiThread(new Runnable() {
+            public void run() {
+                mHelper.queryInventoryAsync(details, skus,
+                new IabHelper.QueryInventoryFinishedListener() {
+                    public void onQueryInventoryFinished(IabResult result, Inventory inventory)  
+                    {
+                        GodotLib.calldeferred(callbackId, "onQueryInventoryFinished", new Object[] { result.getResponse(), result.getMessage(), inventory.getmPurchaseMapJson(), inventory.getmSkuMapJson() });
+                    }
+                });
+            }
+        });
+        
     }
 
     protected void onMainActivityResult(int requestCode, int resultCode, Intent data) {

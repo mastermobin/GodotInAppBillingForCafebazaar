@@ -5,14 +5,14 @@ var mResponse
 var mMessage
 
 func _init(response, message):
-    mResponse = response
-    mMessage = message
+	mResponse = response
+	mMessage = message
     
 func isSuccess():
-    return mResponse == BILLING_RESPONSE_RESULT_OK
+	return mResponse == BILLING_RESPONSE_RESULT_OK
 
 func isFailure():
-    return isSuccess()
+	return isSuccess()
 
 """func getResponseDesc(code):
     var iab_msgs = ("0:OK/1:User Canceled/2:Unknown/" +
@@ -41,4 +41,4 @@ func isFailure():
         return iab_msgs[code] """
 
 func toString(): 
-    return "IabResult: " + mMessage
+	return "IabResult: " + mMessage

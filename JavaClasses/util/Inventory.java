@@ -17,8 +17,11 @@ package org.godotengine.godot.util;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import org.json.JSONObject;
+
 
 /**
  * Represents a block of information about in-app items.
@@ -83,6 +86,28 @@ public class Inventory {
 
     void addSkuDetails(SkuDetails d) {
         mSkuMap.put(d.getSku(), d);
+    }
+
+    public String getmPurchaseMapJson(){
+        Map<String, String> resMap = new HashMap<String, String>();
+        Iterator it = mPurchaseMap.entrySet().iterator();
+        while (it.hasNext()) {
+            Map.Entry pair = (Map.Entry)it.next();
+            Purchase purchase = (Purchase) pair.getValue();
+            resMap.put(pair.getKey().toString(), purchase.getItemType() + ";" + purchase.getOriginalJson() + ";" + purchase.getSignature());
+        }
+        return (new JSONObject(resMap)).toString();
+    }
+
+    public String getmSkuMapJson(){
+        Map<String, String> resMap = new HashMap<String, String>();
+        Iterator it = mSkuMap.entrySet().iterator();
+        while (it.hasNext()) {
+            Map.Entry pair = (Map.Entry)it.next();
+            SkuDetails sku = (SkuDetails) pair.getValue();
+            resMap.put(pair.getKey().toString(), sku.getItemType() + ";" + sku.getJson());
+        }
+        return (new JSONObject(resMap)).toString();
     }
 
     void addPurchase(Purchase p) {
