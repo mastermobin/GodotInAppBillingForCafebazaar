@@ -1,9 +1,9 @@
 extends Node2D
 
-const PurchaseTemp = preload("res://Scripts/utils/Purchase.gd")
-const IabResultTemp = preload("res://Scripts/utils/IabResult.gd")
-const SkuDetailsTemp = preload("res://Scripts/utils/SkuDetails.gd")
-const InventoryTemp = preload("res://Scripts/utils/Inventory.gd")
+const PurchaseTemp = preload("utils/Purchase.gd")
+const IabResultTemp = preload("utils/IabResult.gd")
+const SkuDetailsTemp = preload("utils/SkuDetails.gd")
+const InventoryTemp = preload("utils/Inventory.gd")
 
 onready var cafeBazaarIAB = Engine.get_singleton("CafeBazaarIAB")
 

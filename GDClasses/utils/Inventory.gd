@@ -1,8 +1,8 @@
 var mSkuMap = {}
 var mPurchaseMap = {}
 
-const PurchaseTemp = preload("res://Scripts/utils/Purchase.gd")
-const SkuDetailsTemp = preload("res://Scripts/utils/SkuDetails.gd")
+const PurchaseTemp = preload("Purchase.gd")
+const SkuDetailsTemp = preload("SkuDetails.gd")
 
 func _init(purchaseJson, skuJson):
 	var json_conv = JSON.parse(purchaseJson)
