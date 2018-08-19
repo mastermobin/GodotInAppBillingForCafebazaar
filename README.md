@@ -12,11 +12,11 @@ Like Step 1 select android export in the `Custom Package` part select debug and 
 Paste GDScripts into resource directory and link `CafeBazaar.gd` to a simple node on the scene to communicate with it.
 ## Step 4 : Usage
 Just get that node linked to `Cafebazaar.gd` and use its methods :
-|Method Name|Description|
-|-----------|-----------|
-|startSetup (String key)|Connect to The Cafebazaar IAB Service and get ready for working with that and emit `on_iab_setup_finished` signal when getting response from Cafebazaar |
-|launchPurchaseFlow (String skuID, String developerPayload)|Open Cafebazaar purchase dialog and emit `on_iab_purchase_finished` signal at the end|
-|consumeAsync (Purchase purchase)|Consume a consumable stuff whenever you want, you can do it at end of purchase. this method emit `on_iab_consume_finished` signal at the end|
-|queryInventoryAsync (bool skuDetailsFlag, List skuList)|Return skuList items info from Cafebazaar and you can use it when `on_query_inventory_finished` emitted|
+|Method Name                                               |Description                                                                                                                                            |
+|----------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
+|startSetup (String key)                                   |Connect to The Cafebazaar IAB Service and get ready for working with that and emit `on_iab_setup_finished` signal when getting response from Cafebazaar|
+|launchPurchaseFlow (String skuID, String developerPayload)|Open Cafebazaar purchase dialog and emit `on_iab_purchase_finished` signal at the end                                                                  |
+|consumeAsync (Purchase purchase)                          |Consume a consumable stuff whenever you want, you can do it at end of purchase. this method emit `on_iab_consume_finished` signal at the end           |
+|queryInventoryAsync (bool skuDetailsFlag, List skuList)   |Return skuList items info from Cafebazaar and you can use it when `on_query_inventory_finished` emitted                                                |
 **Note : the second signals param will be a string consist "Null" value if operation wasn't success, so check result at the first step.** 
 
