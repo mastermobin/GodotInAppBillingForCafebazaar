@@ -1,4 +1,4 @@
-﻿# CafeBazaar InAppBilling For Godot 3.1.Dev
+﻿# CafeBazzar InAppBilling For Godot 3.1.Dev
 In this repository we implement some classes to connect and communicate with CafeBazaar In App Billing Service 
 # How To Use ?
 In this section we explain how to use these classes for creating a connection
@@ -22,5 +22,4 @@ queryInventoryAsync (bool skuDetailsFlag, List skuList) | Returns skuList items 
 
 **Note : The second signals param will be a string consisting "Null" value if operation is not successful, so check the results at the first step.** 
 # Java Classes
-if you add some android modules and have your own custom template so use our java classes to combine your template and ours
-Compile instructions for android modules available on Godot Documentation
+If you have added some android modules, and have your own custom templates, use our java classes to combine your template and ours. Compile instructions for android modules are available in [Godot Documentation](http://docs.godotengine.org/en/3.0/development/compiling/compiling_for_android.html).
